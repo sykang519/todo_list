@@ -29,10 +29,12 @@ function App() {
     },
   ]);
 
+
+
   return (
     <div className={styles.container}>
       <h1>Todo list</h1>
-      <AddTodo />
+      <AddTodo setTodo={setTodos}/>
       <TodoList todos={todos}/>
     </div>
   );
