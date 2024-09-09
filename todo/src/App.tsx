@@ -11,23 +11,7 @@ function App() {
     text: string;
     checked: boolean
   }
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      id: 1,
-      text: '리액트 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링 하기',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '투두리스트 만들기',
-      checked: false,
-    },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleRemove = (id:number) => {    
     // todos.id와 id가 일치하지 않는 원소만 추출해서 새로운 배열을 만듦
