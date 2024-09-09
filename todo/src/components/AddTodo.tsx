@@ -26,10 +26,11 @@ function AddTodo({setTodo} : AddTodoProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
+    
     setTodo(prevTodos => [
       ...prevTodos,
       {
-        id: prevTodos.length + 1,
+        id: prevTodos.length > 0 ? prevTodos[prevTodos.length - 1].id + 1 : 1,
         text: text,
         checked: false,
       },
