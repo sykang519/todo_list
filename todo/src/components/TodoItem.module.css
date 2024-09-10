@@ -19,6 +19,13 @@
     font-size: 1.5rem;
 }
 
+.todo_fin{
+    width: 85%;
+    font-size: 1.5rem;
+    text-decoration-line:line-through;
+    color: gray;
+}
+
 .buttonContainer{
     width: 10%;
     display: flex;

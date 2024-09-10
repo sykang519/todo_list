@@ -19,13 +19,19 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));  
   };
 
+  const handleCheck = (id: number) => {
+    // todos.id === id인 원소를 찾아서 checked 값을 반전시킴
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, checked: !todo.checked } : todo
+    ));
+  };
 
 
   return (
     <div className={styles.container}>
       <h1>Todo list</h1>
       <AddTodo setTodo={setTodos}/>
-      <TodoList todos={todos} handleRemove={handleRemove}/>
+      <TodoList todos={todos} handleCheck={handleCheck} handleRemove={handleRemove}/>
     </div>
   );
 }
