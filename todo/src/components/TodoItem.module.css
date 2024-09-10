@@ -12,6 +12,9 @@
 .checkbox{
     width: 5%;
     height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo{

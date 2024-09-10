@@ -5,6 +5,8 @@ import { FiTrash2 } from 'react-icons/fi';
 import { GoPencil } from "react-icons/go";
 import { MdOutlineCancel } from "react-icons/md";
 import { MdDoneOutline } from "react-icons/md";
+import { GrCheckbox } from "react-icons/gr";
+import { GrCheckboxSelected } from "react-icons/gr";
 
 interface Todo{
   id: number;
@@ -44,18 +46,28 @@ function TodoItem({todo, handleUpdate, handleCheck, handleRemove} : TodoItemProp
     <>
     {/* 투두리스트 수정 중일 때 */}
     {modifying && 
-      <div className={styles.container}>
-        <input className={styles.inputBox} defaultValue={todo.text} onChange={handleTextChanged}/>
+      <form className={styles.container}>
+        <input className={styles.inputBox} defaultValue={todo.text} onChange={handleTextChanged} required/>
         <div className={styles.buttons} onClick={Modifying}> <MdOutlineCancel className={styles.icon}/></div>
         <div className={styles.buttons} onClick={() => handleSubmit(todo.id, text)}> <MdDoneOutline className={styles.icon}/></div>
-      </div>
+      </form>
     }
 
     {/* 투두리스트 수정 안 할 때 */}
     {!modifying && 
       <div className={styles.container}>
-        <input className={styles.checkbox} type="checkbox" onChange={() => handleCheck(todo.id)}/>
-        {todo.checked ? <div className={styles.todo_fin}>{todo.text}</div> : <div className={styles.todo}>{todo.text}</div>}
+
+        {todo.checked ? 
+          <>
+            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}><GrCheckboxSelected className={styles.icon}/></div>
+            <div className={styles.todo_fin}>{todo.text}</div>
+          </> :
+
+          <>
+            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}><GrCheckbox className={styles.icon}/></div>
+            <div className={styles.todo}>{todo.text}</div>
+          </>
+        }
           <div className={styles.buttons} onClick={Modifying}><GoPencil className={styles.icon}/></div>
           <div className={styles.buttons} onClick={() => handleRemove(todo.id)}><FiTrash2 className={styles.icon}/></div>
       </div>
