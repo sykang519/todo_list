@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1>💝 Todo list 💝</h1>
+      <h1>🩵 할 일 목록 🩵</h1>
       <AddTodo setTodo={setTodos}/>
       <TodoList todos={todos} handleUpdate={handleUpdate} handleCheck={handleCheck} handleRemove={handleRemove}/>
     </div>

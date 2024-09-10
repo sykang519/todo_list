@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AddTodo.module.css';
 import { GoPlusCircle } from "react-icons/go";
+import IconButton from '@mui/material/IconButton';
 
 interface Todo {
   id: number;
@@ -43,7 +44,7 @@ function AddTodo({setTodo} : AddTodoProps) {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <input className={styles.inputBox} type="text" value={text} onChange={handleInputChange} placeholder="할 일을 입력하세요" required />
-      <button className={styles.buttons} type="submit"><GoPlusCircle className={styles.icon}/></button>
+      <button className={styles.buttons} type="submit"><IconButton><GoPlusCircle className={styles.icon}/></IconButton></button>
 
     </form>
   );

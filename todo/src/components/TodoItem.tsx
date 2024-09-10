@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
 import styles from './TodoItem.module.css'
 import { FiTrash2 } from 'react-icons/fi';
@@ -7,6 +7,8 @@ import { MdOutlineCancel } from "react-icons/md";
 import { MdDoneOutline } from "react-icons/md";
 import { GrCheckbox } from "react-icons/gr";
 import { GrCheckboxSelected } from "react-icons/gr";
+import * as React from 'react';
+import IconButton from '@mui/material/IconButton';
 
 interface Todo{
   id: number;
@@ -47,9 +49,13 @@ function TodoItem({todo, handleUpdate, handleCheck, handleRemove} : TodoItemProp
     {/* 투두리스트 수정 중일 때 */}
     {modifying && 
       <form className={styles.container}>
-        <input className={styles.inputBox} defaultValue={todo.text} onChange={handleTextChanged} required/>
-        <div className={styles.buttons} onClick={Modifying}> <MdOutlineCancel className={styles.icon}/></div>
-        <div className={styles.buttons} onClick={() => handleSubmit(todo.id, text)}> <MdDoneOutline className={styles.icon}/></div>
+        <input className={styles.inputBox} defaultValue={todo.text} onChange={handleTextChanged} autoFocus/>
+        <div className={styles.buttons} onClick={Modifying}> 
+          <IconButton><MdOutlineCancel className={styles.icon}/></IconButton>
+        </div>
+        <div className={styles.buttons} onClick={() => handleSubmit(todo.id, text)}>
+          <IconButton><MdDoneOutline className={styles.icon}/></IconButton>
+        </div>
       </form>
     }
 
@@ -59,17 +65,25 @@ function TodoItem({todo, handleUpdate, handleCheck, handleRemove} : TodoItemProp
 
         {todo.checked ? 
           <>
-            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}><GrCheckboxSelected className={styles.icon}/></div>
+            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}>
+              <IconButton><GrCheckboxSelected className={styles.icon}/></IconButton>
+            </div>
             <div className={styles.todo_fin}>{todo.text}</div>
           </> :
 
           <>
-            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}><GrCheckbox className={styles.icon}/></div>
+            <div className={styles.checkbox} onClick={() => handleCheck(todo.id)}>
+              <IconButton><GrCheckbox className={styles.icon}/></IconButton>
+            </div>
             <div className={styles.todo}>{todo.text}</div>
           </>
         }
-          <div className={styles.buttons} onClick={Modifying}><GoPencil className={styles.icon}/></div>
-          <div className={styles.buttons} onClick={() => handleRemove(todo.id)}><FiTrash2 className={styles.icon}/></div>
+          <div className={styles.buttons} onClick={Modifying}>
+            <IconButton><GoPencil className={styles.icon}/></IconButton>
+          </div>
+          <div className={styles.buttons} onClick={() => handleRemove(todo.id)}>
+            <IconButton><FiTrash2 className={styles.icon}/></IconButton>
+          </div>
       </div>
     }
     </>
