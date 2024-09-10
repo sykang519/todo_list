@@ -22,7 +22,7 @@ function AddTodo({setTodo} : AddTodoProps) {
     setText(e.target.value);
   };
 
-  // 사용자가 추가 버튼을 누르면 todo list에 값 추가
+  // create
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     

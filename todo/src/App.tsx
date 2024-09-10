@@ -13,14 +13,20 @@ function App() {
   }
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // update
+  const handleUpdate = (id : number, newText: string) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, text: newText} : todo
+    ))
+  }
+
+  // delete
   const handleRemove = (id:number) => {    
-    // todos.id와 id가 일치하지 않는 원소만 추출해서 새로운 배열을 만듦
-    // todos.id === id인 원소만 제거함. 즉, true인 원소들만 반환한다.    
     setTodos(todos.filter((todo) => todo.id !== id));  
   };
 
+  // 완료 표시
   const handleCheck = (id: number) => {
-    // todos.id === id인 원소를 찾아서 checked 값을 반전시킴
     setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, checked: !todo.checked } : todo
     ));
@@ -29,9 +35,9 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1>Todo list</h1>
+      <h1>💝 Todo list 💝</h1>
       <AddTodo setTodo={setTodos}/>
-      <TodoList todos={todos} handleCheck={handleCheck} handleRemove={handleRemove}/>
+      <TodoList todos={todos} handleUpdate={handleUpdate} handleCheck={handleCheck} handleRemove={handleRemove}/>
     </div>
   );
 }
