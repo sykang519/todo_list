@@ -1,13 +1,15 @@
 # React, typescript로 간단한 투두 리스트 만들기
 
 ## 1. 시연 영상
-![투두리스트](https://github.com/user-attachments/assets/074ccd4c-37a6-48e6-80c4-adbbdb0034d7)
+![투두리스트 시연](https://github.com/user-attachments/assets/fd101c28-e7ba-4dc2-a6b7-50bb863d45d6)
+
 
 ## 2. 기능 소개
 - 할 일 추가
 - 할 일 수정
 - 할 일 삭제
 - 완료 표시
+- 상세 보기
 
 ## 3. 컴포넌트 구조
 <img width="966" alt="스크린샷 2024-09-10 오후 2 38 40" src="https://github.com/user-attachments/assets/05fed38f-c01d-4bd5-83f5-330e47898839">
