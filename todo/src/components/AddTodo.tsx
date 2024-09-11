@@ -3,9 +3,10 @@ import styles from './AddTodo.module.css';
 import { GoPlusCircle } from "react-icons/go";
 import IconButton from '@mui/material/IconButton';
 
-interface Todo {
+interface Todo{
   id: number;
   text: string;
+  content: string;
   checked: boolean;
 }
 
@@ -33,6 +34,7 @@ function AddTodo({setTodo} : AddTodoProps) {
       {
         id: prevTodos.length > 0 ? prevTodos[prevTodos.length - 1].id + 1 : 1,
         text: text,
+        content: "",
         checked: false,
       },
     ]);

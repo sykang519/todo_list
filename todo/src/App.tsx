@@ -9,7 +9,8 @@ function App() {
   interface Todo{
     id: number;
     text: string;
-    checked: boolean
+    content: string;
+    checked: boolean;
   }
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -17,6 +18,12 @@ function App() {
   const handleUpdate = (id : number, newText: string) => {
     setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, text: newText} : todo
+    ))
+  }
+
+  const handleUpdateContent = (id : number, newContent: string) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, content: newContent} : todo
     ))
   }
 
@@ -37,7 +44,7 @@ function App() {
     <div className={styles.container}>
       <h1>🩵 할 일 목록 🩵</h1>
       <AddTodo setTodo={setTodos}/>
-      <TodoList todos={todos} handleUpdate={handleUpdate} handleCheck={handleCheck} handleRemove={handleRemove}/>
+      <TodoList todos={todos} handleUpdate={handleUpdate} handleUpdateContent={handleUpdateContent} handleCheck={handleCheck} handleRemove={handleRemove}/>
     </div>
   );
 }

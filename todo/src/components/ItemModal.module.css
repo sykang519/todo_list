@@ -1,0 +1,27 @@
+.icon{
+    cursor: pointer;
+    width: 5%;
+}
+
+.contentIcon{
+    cursor: pointer;
+    width: 5%;
+
+
+}
+
+.inputText{
+    width: 95%;
+    font-size: 1.5rem;
+    padding: 10px;
+    outline: none;
+    border: none;
+    
+}
+
+.inputContent{
+    width: 95%;
+    height: 100%;
+    font-size: 20px;
+    vertical-align: top;
+}
