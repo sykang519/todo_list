@@ -55,10 +55,16 @@ function TodoItem({todo, handleUpdate, handleUpdateContent, handleCheck, handleR
 
   }
 
-  var modifycontent = 
+  // 수정 취소 버튼 클릭 시 호출
+  const handleCancel = () => {
+    Modifying();
+    setText(todo.text);
+  }
+
+  const modifycontent = 
   <form className={styles.container}>
     <input className={styles.inputBox} defaultValue={todo.text} onChange={handleTextChanged} autoFocus/>
-    <div className={styles.buttons} onClick={Modifying}> 
+    <div className={styles.buttons} onClick={handleCancel}> 
       <IconButton><MdOutlineCancel className={styles.icon}/></IconButton>
     </div>
     <div className={styles.buttons} onClick={() => handleSubmit(todo.id, text)}>
@@ -68,7 +74,7 @@ function TodoItem({todo, handleUpdate, handleUpdateContent, handleCheck, handleR
 
 
 
-  var unmodifycontent 
+  const unmodifycontent 
   = <div className={styles.container}>
       {todo.checked ? 
         <>
